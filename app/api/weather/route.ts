@@ -17,10 +17,15 @@ export async function GET(request: Request) {
     const data = await response.json()
 
     const weatherData = {
+      placeName: data.name,
       temperature: data.main.temp,
       description: data.weather[0].description,
       humidity: data.main.humidity,
       windSpeed: data.wind.speed,
+      feelsLike: data.main.feels_like,
+      pressure: data.main.pressure,
+      visibility: data.visibility,
+      icon: data.weather[0].icon,
     }
 
     return NextResponse.json(weatherData)
