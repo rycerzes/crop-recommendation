@@ -9,12 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ai-sdk/openai": "^1.0.15",
     "@googlemaps/js-api-loader": "^1.16.8",
     "@radix-ui/react-dialog": "^1.1.4",
     "@radix-ui/react-popover": "^1.1.4",
     "@radix-ui/react-slot": "^1.1.1",
     "@radix-ui/react-toast": "^1.2.4",
     "@react-google-maps/api": "^2.20.5",
+    "ai": "^4.0.30",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "1.0.0",

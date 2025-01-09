@@ -43,13 +43,7 @@ interface WeatherInfoProps {
 
 const WeatherInfo: React.FC<WeatherInfoProps> = ({ weatherData, aqiData, forecastData }) => {
   if (!weatherData) {
-    return (
-      <Card className="mt-4">
-        <CardContent>
-          <p>No weather data available. Please select a location.</p>
-        </CardContent>
-      </Card>
-    );
+    return null;
   }
 
   return (
@@ -62,7 +56,7 @@ const WeatherInfo: React.FC<WeatherInfoProps> = ({ weatherData, aqiData, forecas
           <div>
             <h3 className="text-2xl font-bold mb-2">Current Weather</h3>
             <div className="flex items-center">
-              <Image src={`/weather-icons/${weatherData.icon}.png`} alt={weatherData.description} width={50} height={50} />
+              <Image src={`https://openweathermap.org/img/wn/${weatherData.icon}@4x.png`} alt={weatherData.description} width={50} height={50} />
               <span className="text-4xl ml-2">{weatherData.temperature}°C</span>
             </div>
             <p className="text-lg">{weatherData.description}</p>
@@ -93,7 +87,7 @@ const WeatherInfo: React.FC<WeatherInfoProps> = ({ weatherData, aqiData, forecas
                 {forecastData.hourly.slice(0, 5).map((hour, index) => (
                   <div key={index} className="text-center">
                     <p>{new Date(hour.time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</p>
-                    <Image src={`/weather-icons/${hour.icon}.png`} alt={hour.icon} width={30} height={30} />
+                    <Image src={`https://openweathermap.org/img/wn/${hour.icon}@4x.png`} alt={hour.icon} width={30} height={30} />
                     <p>{hour.temperature}°C</p>
                   </div>
                 ))}
@@ -104,7 +98,7 @@ const WeatherInfo: React.FC<WeatherInfoProps> = ({ weatherData, aqiData, forecas
                 {forecastData.daily.slice(0, 5).map((day, index) => (
                   <div key={index} className="text-center">
                     <p>{new Date(day.date).toLocaleDateString([], { weekday: 'short' })}</p>
-                    <Image src={`/weather-icons/${day.icon}.png`} alt={day.icon} width={30} height={30} />
+                    <Image src={`https://openweathermap.org/img/wn/${day.icon}@4x.png`} alt={day.icon} width={30} height={30} />
                     <p>{day.minTemp}°C - {day.maxTemp}°C</p>
                   </div>
                 ))}
